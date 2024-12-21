@@ -22,7 +22,7 @@ def main():
 
         pygame.display.flip()
 
-        clock.tick(60) #limit FPS to 60
+        clock.tick(FPS_LIMITER) #limit FPS to 60
 
 if __name__ == "__main__":
     main()
