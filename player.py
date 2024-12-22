@@ -6,7 +6,7 @@ from constants import *
 class Player(CircleShape):
     def __init__(self, x, y):
         self.rotation = 0
-        CircleShape(self, x, y, PLAYER_RADIUS)
+        super().__init__(x, y, PLAYER_RADIUS)
 
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -15,3 +15,6 @@ class Player(CircleShape):
         b = self.position - forward * self.radius - right
         c = self.position - forward * self.radius + right
         return [a, b, c]
+    
+    def draw(self, screen):
+        pygame.draw.polygon(screen, points=self.triangle(), color='white', width=2)

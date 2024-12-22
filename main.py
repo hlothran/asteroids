@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import *
 
 def main():
     #added for bootdev purposes
@@ -20,9 +21,15 @@ def main():
         
         screen.fill("black")
 
-        pygame.display.flip()
-
         clock.tick(FPS_LIMITER) #limit FPS to 60
+
+        player_x = SCREEN_WIDTH/2
+        player_y = SCREEN_HEIGHT/2
+        player = Player(player_x, player_y)
+
+        player.draw(screen)
+
+        pygame.display.flip()
 
 if __name__ == "__main__":
     main()
